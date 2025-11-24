@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     std::cout << "=======================================" << std::endl;
     
     // 🏗 Création du moteur de jeu
-    Ecosystem::Core::GameEngine engine("Simulateur d'Ecosysteme Intelligent", 1200.0f, 800.0f);
+    Ecosystem::Core::GameEngine engine("Simulateur d'Ecosysteme Intelligent", 800.0f, 640.0f);
     
     // ⚙️ Initialisation
     if (!engine.Initialize()) {
