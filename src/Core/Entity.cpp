@@ -154,6 +154,16 @@ namespace Core {
         return nullptr;
     }
 
+    // Applying occasionally a force to entity
+    void Entity::ApplyForce(Vector2D force) {
+        if (mType == EntityType::PLANT) return;
+
+        std::uniform_real_distribution<float> chance(-1.0f, 1.0f);
+        if (chance(mRandomGenerator) < 0.01f) {
+            position = position + mVelocity + force;
+        }
+    }
+
     // RANDOM DIRECTION GENERATOR
     Vector2D Entity::GenerateRandomDirection() {
         std::uniform_real_distribution<float> dist(-1.0f, 1.0f);
