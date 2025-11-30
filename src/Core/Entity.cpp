@@ -164,8 +164,22 @@ namespace Core {
         }
     }
 
+    Vector2D Entity::StayInBounds(float worldWidth, float worldHeight) const{
+        Vector2D newPosition;
+        while(true) {
+            if (position.x <= 0 || position.y <= 0 || position.x >= worldWidth || position.y >= worldHeight) {
+                newPosition = GenerateRandomDirection();
+                newPosition = mVelocity + newPosition;
+            }
+            else {
+                break;
+            }
+        }
+        return newPosition;
+    }
+
     // RANDOM DIRECTION GENERATOR
-    Vector2D Entity::GenerateRandomDirection() {
+    Vector2D Entity::GenerateRandomDirection() const{
         std::uniform_real_distribution<float> dist(-1.0f, 1.0f);
         return Vector2D(dist(mRandomGenerator), dist(mRandomGenerator));
     }

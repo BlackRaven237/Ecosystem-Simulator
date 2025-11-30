@@ -72,7 +72,7 @@ namespace Ecosystem {
             void ConsumeEnergy(float deltaTime); 
             void Age(float deltaTime); 
             void CheckVitality(); 
-            Vector2D GenerateRandomDirection(); 
+            Vector2D GenerateRandomDirection() const; 
             Color CalculateColorBasedOnState() const; 
         };
 
